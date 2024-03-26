@@ -47,7 +47,7 @@ def bruteForceX(A, b):
         if np.allclose(np.dot(A, x), b):
             return x;
 
-    return None;    
+    return np.zeros((A.shape[1], 1));
 
 def main():
     adj_matrix_AB = read_adjacency_matrix_from_csv('setAB.csv');
@@ -65,9 +65,14 @@ def main():
     
     b = np.ones((matrix_A.shape[0],1 ), dtype=int);
     x = bruteForceX(matrix_A,b);
-    print("Triples Set T = " , triples);
+
+    if(np.all(x==0)):
+        print("No Solutions found.");
+        return;
 
     print(x);
+
+    print("Triples Set T = " , triples);
     indexesM = [];
     tripleSoln = [];
     for i in range(len(x)):
