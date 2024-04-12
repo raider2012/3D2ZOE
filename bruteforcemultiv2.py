@@ -2,9 +2,11 @@ import csv
 
 import numpy as np
 import random
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
+#Anirban Chakraborty
 
 def read_triples_from_csv(file_path):
 
@@ -51,9 +53,35 @@ def solve_for_x_multithreaded(A, b):
 
 if __name__ == "__main__":
     start_time = time.time()  # Start time
-    filepath = None
+    
+    #working solution
+    """triples = [('Boy_11', 'Girl_11', 'Pet_11'),
+            ('Boy_5', 'Girl_5', 'Pet_5'),
+            ('Boy_10', 'Girl_10', 'Pet_10'),
+            ('Boy_7', 'Girl_7', 'Pet_7'),
+            ('Boy_8', 'Girl_8', 'Pet_8'),
+            ('Boy_12', 'Girl_12', 'Pet_12'),
+            ('Boy_9', 'Girl_9', 'Pet_9'),
+            ('Boy_4', 'Girl_4', 'Pet_4'),
+            ('Boy_1', 'Girl_1', 'Pet_1'),
+            ('Boy_6', 'Girl_6', 'Pet_6'),
+            ('Boy_3', 'Girl_3', 'Pet_3'),
+            ('Boy_15', 'Girl_15', 'Pet_15'),
+            ('Boy_14', 'Girl_14', 'Pet_14'),
+            ('Boy_16', 'Girl_16', 'Pet_16'),
+            ('Boy_2', 'Girl_2', 'Pet_2'),
+            ('Boy_13', 'Girl_13', 'Pet_13')]"""
+    
+    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    #Chane the name of the csv as needed
+    filename = "input.csv"  
+    filepath = os.path.join(script_dir, filename)
+    # Read triples from the CSV
+    triples = read_triples_from_csv(filepath)
+    print(triples)
 
-    triples = generate_worst_case(num_triples=32)
+    #triples = generate_worst_case(num_triples=32)
 
     #
     individuals = set(sum(triples, ()))
