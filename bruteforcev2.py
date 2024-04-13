@@ -51,11 +51,11 @@ def solve_for_x(A, b):
 
 
 if __name__ == "__main__":
-    x_solution = solve_for_x(A, b)
+    x_solution_normal = solve_for_x(A, b)
 
-    if x_solution is not None:  # Print out the solution, or no solution
-        print("Solution for x found:", x_solution)
-        matching_triples = [triples[i] for i in range(len(x_solution)) if x_solution[i] == 1]
+    if x_solution_normal is not None:  # Print out the solution, or no solution
+        print("Solution for x found:", x_solution_normal)
+        matching_triples = [triples[i] for i in range(len(x_solution_normal)) if x_solution_normal[i] == 1]
         print("Matching triples:", matching_triples)
     else:
         print("No solution found.")
